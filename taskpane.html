@@ -29,7 +29,8 @@
                 await context.sync();
 
                 const sheets = context.workbook.worksheets;
-                sheets.getItem("Sheet1").getRange("A1").values = [["The selected address was " + range.address + "."]];
+                sheets.getItem("Sheet1").getRange("A1").values = [["FangTooth Project Kickoff! 🤘"]];
+                sheets.getItem("Sheet1").getRange("A2").values = [["The selected address was " + range.address + "."]];
             });
         }
 
