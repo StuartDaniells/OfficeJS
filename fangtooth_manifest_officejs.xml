@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:type="TaskPaneApp">
+  <Id>abcd1234-5678-90ab-cdef-0123456789ab</Id>
+  <Version>1.0.0.0</Version>
+  <ProviderName>FangTooth</ProviderName>
+  <DefaultLocale>en-US</DefaultLocale>
+  <DisplayName DefaultValue="FanTooth 🤘" />
+  <Description DefaultValue="A Office.js Excel Add-in App." />
+  <IconUrl DefaultValue="https://stuartdaniells.github.io/OfficeJS/icons/fantooth_1.png" />
+  <HighResolutionIconUrl DefaultValue="https://stuartdaniells.github.io/OfficeJS/icons/fantooth_1.png" />
+  <!-- <SupportUrl DefaultValue="https://www.website.org/contact" /> -->
+  <AppDomains>
+    <AppDomain>https://github.com/StuartDaniells/OfficeJS</AppDomain>
+  </AppDomains>
+  <Hosts>
+    <Host Name="Workbook" />
+  </Hosts>
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://stuartdaniells.github.io/OfficeJS/taskpane.html" />
+  </DefaultSettings>
+  <Permissions>ReadWriteDocument</Permissions>
+    <Hosts>
+      <Host xsi:type="Workbook">
+        <DesktopFormFactor>
+          <!-- resid must point to a Url Resource -->
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+
+            <CustomTab id="MyTab">
+              <Group id="MyCommandsGroup">
+                <Label resid="MyCommandsGroup.Label" />
+                <Icon>
+                  <bt:Image size="16" resid="Icon.16x16" />
+                </Icon>
+
+                <!-- Ribbon button that opens the task pane -->
+                <Control xsi:type="Button" id="MyTaskpaneButton">
+                  <Label resid="MyTaskpaneButton.Label" />
+                  <Supertip>
+                    <Title resid="MyTaskpaneButton.Label" />
+                    <Description resid="MyTaskpaneButton.Tooltip" />
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16x16" />
+                  </Icon>
+                  <!-- Action type must be ShowTaskpane -->
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>ButtonId1</TaskpaneId>
+                    <!-- resid must point to a Url Resource -->
+                    <SourceLocation resid="Taskpane.Url" />
+                  </Action>
+                </Control>
+
+              </Group>
+              <Label resid="MyTab.TabLabel" />
+            </CustomTab>
+
+          </ExtensionPoint>
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+
+    <Resources>
+      <bt:Images>
+        <bt:Image id="Icon.16x16" DefaultValue="https://stuartdaniells.github.io/OfficeJS/icons/fantooth_1.png" />
+      </bt:Images>
+      <bt:Urls>
+        <!-- This must point to the HTML document with the task pane -->
+        <bt:Url id="Taskpane.Url" DefaultValue="https://stuartdaniells.github.io/OfficeJS/taskpane.html" />
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="MyTab.TabLabel" DefaultValue="FangTooth" />
+        <bt:String id="MyCommandsGroup.Label" DefaultValue="MyGroup" />
+        <bt:String id="MyTaskpaneButton.Label" DefaultValue="Show Taskpane" />
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="MyTaskpaneButton.Tooltip" DefaultValue="Click to show the task pane" />
+      </bt:LongStrings>
+    </Resources>
+
+</OfficeApp>
